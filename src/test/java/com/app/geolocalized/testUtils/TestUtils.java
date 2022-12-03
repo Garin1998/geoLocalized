@@ -1,6 +1,9 @@
 package com.app.geolocalized.testUtils;
 
+import com.google.gson.JsonObject;
+
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class TestUtils {
 
@@ -13,5 +16,23 @@ public class TestUtils {
             added++;
         }
         return branchesID;
+    }
+
+    public static JsonObject createJSONBodyWithGeoLocalizationData(String deviceId, int latitude, int longitude) {
+        JsonObject body = new JsonObject();
+        body.addProperty("deviceId", deviceId);
+        body.addProperty("latitude", latitude);
+        body.addProperty("longitude", longitude);
+        return body;
+    }
+
+    public static JsonObject createJsonFromStrings(HashMap<String, String> listOfStrings) {
+        JsonObject json = new JsonObject();
+
+        listOfStrings.forEach(
+                json::addProperty
+                );
+
+        return json;
     }
 }

@@ -44,7 +44,7 @@ public class Birch extends Deciduous {
         return stringJoiner
                 .add("Birch had grown")
                 .add(Integer.toString(amount))
-                .add("new leaves on")
+                .add("new leaves on branch")
                 .add(branchID)
                 .toString();
     }
@@ -55,7 +55,7 @@ public class Birch extends Deciduous {
 
         StringJoiner stringJoiner = new StringJoiner(" ");
         return stringJoiner
-                .add("Birch had shed all leaves from")
+                .add("Birch had shed all leaves from branch")
                 .add(branchID)
                 .toString();
     }

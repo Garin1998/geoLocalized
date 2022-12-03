@@ -1,1 +1,18 @@
+server:
+  port: 8080
 
+spring:
+  security:
+    user:
+      name: user
+      password: password
+  datasource:
+    url: jdbc:h2:mem:geoDB
+    username: user
+    password: password
+    driverClassName: org.h2.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    defer-datasource-initialization: true
+  h2:
+    console.enabled: true

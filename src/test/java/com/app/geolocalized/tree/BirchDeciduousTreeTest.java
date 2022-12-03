@@ -1,6 +1,6 @@
 package com.app.geolocalized.tree;
 
-import com.app.geolocalized.model.tree.deciduous.Deciduous;
+import com.app.geolocalized.model.tree.Tree;
 import com.app.geolocalized.model.tree.deciduous.species.Birch;
 import com.app.geolocalized.testUtils.TestUtils;
 import lombok.Getter;
@@ -20,8 +20,7 @@ import static org.junit.jupiter.api.Assertions.*;
 @Getter
 @Setter
 public class BirchDeciduousTreeTest {
-
-    private Deciduous birch;
+    private Tree birch;
 
     @BeforeEach
     void init() {
@@ -68,7 +67,7 @@ public class BirchDeciduousTreeTest {
 
     @Test
     public void whenGrowLeavesOnBranch_thenReturnMessage() {
-        String expectedResult = "Birch had grown 64 new leaves on Branch 1";
+        String expectedResult = "Birch had grown 64 new leaves on branch Branch 1";
 
         //given
         int leavesAmount = 64;
@@ -108,7 +107,7 @@ public class BirchDeciduousTreeTest {
 
     @Test
     public void whenShedAllLeavesFromBranch_thenReturnMessage() {
-        String expectedResult = "Birch had shed all leaves from Branch 1";
+        String expectedResult = "Birch had shed all leaves from branch Branch 1";
 
         //given
         int branchesAmount = 3;
