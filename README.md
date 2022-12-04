@@ -93,4 +93,4 @@ Logs are stored in:
 
 ## Acknowledgements
 - Layout of README.md was inspired by [this project](https://github.com/ritaly/README-cheatsheet)
-- [Baeldung](https://www.baeldung.com/) for some fantasic articles about varius technologies
+- [Baeldung](https://www.baeldung.com/) for some fantasic articles about various technologies
