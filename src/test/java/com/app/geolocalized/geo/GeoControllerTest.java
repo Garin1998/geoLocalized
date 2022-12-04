@@ -33,7 +33,7 @@ public class GeoControllerTest {
     public void whenAuthIsNotOK_thenReturn401() {
         RestAssured.basePath = "/geolocalized/add";
         JsonObject body = TestUtils
-                .createJSONBodyWithGeoLocalizationData("12345", 505430, 1423412);
+                .createJSONBodyWithGeoLocalizationData("12345", "505430", "1423412");
 
         Response response = RestAssured
                 .given()
@@ -48,7 +48,7 @@ public class GeoControllerTest {
     public void whenAuthIsOKAndAddLocalizationIsSuccessful_thenReturn201() {
         RestAssured.basePath = "/geolocalized/add";
         JsonObject body = TestUtils
-                .createJSONBodyWithGeoLocalizationData("12345", 505430, 1423412);
+                .createJSONBodyWithGeoLocalizationData("12345", "505430", "1423412");
 
         Response response = RestAssured
                 .given()
@@ -91,12 +91,12 @@ public class GeoControllerTest {
         RestAssured.basePath = "/geolocalized/add";
 
         JsonObject body = TestUtils
-                .createJSONBodyWithGeoLocalizationData("", -1111505430, 1111423412);
+                .createJSONBodyWithGeoLocalizationData("", "-1111505430", "1111423412");
 
         HashMap<String, String> errors = new HashMap<>();
-        errors.put("latitude", "Latitude cannot be greater than 90 degree South");
+        errors.put("latitude", "Latitude must be between 90 South and 90 North degrees");
         errors.put("deviceId", "DeviceId must be provided");
-        errors.put("longitude", "Longitude cannot be greater than 180 degree East");
+        errors.put("longitude", "Longitude must be between 180 West and 180 East degrees");
 
         String expectedResponse = TestUtils.createJsonFromStrings(errors).toString();
 

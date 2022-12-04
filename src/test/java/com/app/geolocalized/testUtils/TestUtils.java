@@ -18,7 +18,7 @@ public class TestUtils {
         return branchesID;
     }
 
-    public static JsonObject createJSONBodyWithGeoLocalizationData(String deviceId, int latitude, int longitude) {
+    public static JsonObject createJSONBodyWithGeoLocalizationData(String deviceId, String latitude, String longitude) {
         JsonObject body = new JsonObject();
         body.addProperty("deviceId", deviceId);
         body.addProperty("latitude", latitude);

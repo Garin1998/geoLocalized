@@ -2,6 +2,7 @@ package com.app.geolocalized.handler.jpa;
 
 import com.app.geolocalized.model.entity.GeoLocalizationData;
 import com.app.geolocalized.repository.GeoLocalizationDataRepository;
+import com.app.geolocalized.utils.BasicUtils;
 import lombok.Getter;
 import org.springframework.stereotype.Service;
 
@@ -31,6 +32,8 @@ public class BaseGeoLocalizationDataRepositoryHandler implements GeoLocalization
     public String registerGeoLocalization(GeoLocalizationData geoLocalizationData) {
         geoLocalizationDataRepository.save(geoLocalizationData);
         StringJoiner stringJoiner = new StringJoiner(" ");
+
+        BasicUtils.logger.info(geoLocalizationData.toString());
         return stringJoiner.add("Localization of device").add(geoLocalizationData.getDeviceId()).add("has been registered at").add(geoLocalizationData.getTimestamp().getHour() + ":" + geoLocalizationData.getTimestamp().getMinute() + ":" + geoLocalizationData.getTimestamp().getSecond()).toString();
     }
 }

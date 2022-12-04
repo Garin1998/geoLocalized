@@ -1,6 +1,7 @@
 package com.app.geolocalized.handler.excepiton;
 
 
+import com.app.geolocalized.utils.BasicUtils;
 import lombok.NonNull;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -37,6 +38,8 @@ public class GeoControllerExceptionHandler extends ResponseEntityExceptionHandle
             String errorMessage = error.getDefaultMessage();
             errors.put(fieldName, errorMessage);
         });
+
+        BasicUtils.logger.error(errors);
         return handleExceptionInternal(ex, errors, headers, status, request);
     }
 
@@ -46,6 +49,8 @@ public class GeoControllerExceptionHandler extends ResponseEntityExceptionHandle
                                                                   @NonNull HttpHeaders headers,
                                                                   @NonNull HttpStatus status,
                                                                   @NonNull WebRequest request) {
-        return new ResponseEntity<>("Malformed JSON in request", HttpStatus.BAD_REQUEST);
+        String message = "Malformed JSON in request";
+        BasicUtils.logger.error(message);
+        return new ResponseEntity<>(message, HttpStatus.BAD_REQUEST);
     }
 }

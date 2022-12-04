@@ -2,7 +2,6 @@ package com.app.geolocalized.tree;
 
 import com.app.geolocalized.model.tree.Tree;
 import com.app.geolocalized.model.tree.conifer.species.Pine;
-import com.app.geolocalized.model.tree.deciduous.species.Birch;
 import com.app.geolocalized.testUtils.TestUtils;
 import lombok.Getter;
 import lombok.Setter;

@@ -16,3 +16,12 @@ spring:
     defer-datasource-initialization: true
   h2:
     console.enabled: true
+  main:
+    banner-mode: log
+
+logging:
+  file:
+    path: logs
+    name: ${logging.file.path}/geoLocalized.log
+  pattern:
+    console:

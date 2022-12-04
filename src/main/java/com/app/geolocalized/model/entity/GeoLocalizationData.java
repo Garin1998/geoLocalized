@@ -3,14 +3,14 @@ package com.app.geolocalized.model.entity;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.validator.constraints.Range;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 
 /**
@@ -36,11 +36,22 @@ public class GeoLocalizationData {
     @NotBlank(message = "DeviceId must be provided")
     private String deviceId;
 
-    @Min(value = -90000000, message = "Latitude cannot be greater than 90 degree South")
-    @Max(value = 90000000, message = "Latitude cannot be greater than 90 degree North")
-    private int latitude;
+    @Range(min = -90000000L, max = 90000000L, message = "Latitude must be between 90 South and 90 North degrees")
+    @NotNull(message = "Latitude must be provided")
+    private String latitude;
 
-    @Min(value = -180000000, message = "Longitude cannot be greater than 180 degree West")
-    @Max(value = 180000000, message = "Longitude cannot be greater than 180 degree East")
-    private int longitude;
+    @Range(min = -180000000L, max = 180000000L, message = "Longitude must be between 180 West and 180 East degrees")
+    @NotNull(message = "Longitude must be provided")
+    private String longitude;
+
+
+    public String toString() {
+        return "GeoLocalizationData(LogID="
+                + this.getLogID()
+                + ", timestamp=" + this.getTimestamp()
+                + ", deviceId=" + this.getDeviceId()
+                + ", latitude=" + "****"
+                + ", longitude=" + "****"
+                + ")";
+    }
 }
