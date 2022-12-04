@@ -1,6 +1,6 @@
 # geoLocalized
 
-## Table of Contents
+## Technology Stack
 * [Technologies Used](#technology-stack)
 * [Features](#features)
 * [Setup](#setup)
