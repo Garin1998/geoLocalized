@@ -4,6 +4,7 @@
 * [Technologies Used](#technology-stack)
 * [Features](#features)
 * [Setup](#setup)
+* [Acknowledgements](#acknowledgements)
 
 ## Technology Stack
 - Java (JDK Corretto 17.0.5)
@@ -41,7 +42,7 @@ There is two methods to prepare service to run:
 
 ## Features
 
-- Abstract class for different types of trees
+- Abstract class Tree for different types of trees
 - Abstract subclasses of Tree for deciduous and conifer trees
 - Class representation of tree's elements (Trunk, Branch on trunk, Leaf on branch)
 - REST service endpoint for saving information about localization of device
@@ -57,25 +58,39 @@ There is two methods to prepare service to run:
 Currently provide one endpoint to store localization data of device.
 
 With provided release package and default configuration path is set at address:
->http://localhost:8080/geolocalized/add
+
+      http://localhost:8080/geolocalized/add
 
 Example JSON:
->   {
->   "deviceId": "12345",
->   "latitude": 90000000,
->   "longitude": 18000000
->   }
+
+      { 
+         "deviceId": "12345",
+         "latitude": 90000000,
+         "longitude": 18000000 
+      }
 
 Example cURL:
->curl -u "user:password" -H "Content-Type: application/json" -X POST http://localhost:8080/geolocalized/add -d "{\"deviceId\": \"12345\",\"latitude\": 90000000,\"longitude\": 18000000}"
+
+      curl -u "user:password" -H "Content-Type: application/json" -X POST http://localhost:8080/geolocalized/add -d "{\"deviceId\": \"12345\",\"latitude\": 90000000,\"longitude\": 18000000}"
 
 Expected response:
->Localization of device 12345 has been registered at 19:12:31
+
+      Localization of device 12345 has been registered at 19:12:31
 
 Expected response when JSON in request is malformed:
->Malformed JSON in request
+
+      Malformed JSON in request
 
 Expected response when one of parameters is not valid:
->{
->"longitude": "Longitude must be between 180 West and 180 East degrees"
->}
+
+      {
+      "longitude": "Longitude must be between 180 West and 180 East degrees"
+      }
+
+Logs are stored in:
+
+      ${path_to_working_folder}\logs\geoLocalized.log
+
+## Acknowledgements
+- Layout of README.md was inspired by [this project](https://github.com/ritaly/README-cheatsheet)
+- [Baeldung](https://www.baeldung.com/) for some fantasic articles about varius technologies
