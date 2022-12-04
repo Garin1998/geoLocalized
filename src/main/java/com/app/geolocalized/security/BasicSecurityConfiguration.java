@@ -13,6 +13,14 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 
+/**
+ * Class which providing basic authorisation for application with custom filtering and encryption for sensitive data.
+ * Currently, credentials are provided by application configuration via YAML format.
+ *
+ * @author Krzysztof Kubiś
+ * @version 1.0
+ * @since JDK 17
+ */
 @Configuration
 @EnableWebSecurity
 @Getter

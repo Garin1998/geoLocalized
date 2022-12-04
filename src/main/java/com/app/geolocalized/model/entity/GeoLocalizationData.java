@@ -13,13 +13,21 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import java.time.LocalDateTime;
 
+/**
+ * Class, which contains entries for geo localization data.
+ * Simple entry provide device's ID, its latitude, longitude and timestamp about when data was sent.
+ *
+ * @author Krzysztof Kubiś
+ * @version 1.0
+ * @since 17
+ */
 @Entity
 @Getter
 @Setter
 public class GeoLocalizationData {
 
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long LogID;
 
     @CreationTimestamp

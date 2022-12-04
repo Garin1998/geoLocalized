@@ -1,12 +1,18 @@
 package com.app.geolocalized.model.tree.elements;
 
-import com.app.geolocalized.model.tree.elements.Branch;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 
+/**
+ * Store information about trunk, which is a core part of the tree.
+ *
+ * @author Krzysztof Kubiś
+ * @version 1.0
+ * @since JDK 17
+ */
 @Getter
 @Setter
 public class Trunk {

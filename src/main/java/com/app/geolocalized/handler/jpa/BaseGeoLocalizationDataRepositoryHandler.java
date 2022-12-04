@@ -7,6 +7,13 @@ import org.springframework.stereotype.Service;
 
 import java.util.StringJoiner;
 
+/**
+ * Class, which is used for implementation of {@link GeoLocalizationDataRepository interface} and handle requests for storing localization of device.
+ *
+ * @author Krzysztof Kubiś
+ * @version 1.0
+ * @since JDK 17
+ */
 @Service
 @Getter
 public class BaseGeoLocalizationDataRepositoryHandler implements GeoLocalizationDataRepositoryHandler {
@@ -17,19 +24,13 @@ public class BaseGeoLocalizationDataRepositoryHandler implements GeoLocalization
         this.geoLocalizationDataRepository = geoLocalizationDataRepository;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public String registerGeoLocalization(GeoLocalizationData geoLocalizationData) {
         geoLocalizationDataRepository.save(geoLocalizationData);
         StringJoiner stringJoiner = new StringJoiner(" ");
-        return stringJoiner
-                .add("Localization of device")
-                .add(geoLocalizationData.getDeviceId())
-                .add("has been registered at")
-                .add(
-                        geoLocalizationData.getTimestamp().getHour()
-                        + ":" + geoLocalizationData.getTimestamp().getMinute()
-                        + ":" + geoLocalizationData.getTimestamp().getSecond()
-                )
-                .toString();
+        return stringJoiner.add("Localization of device").add(geoLocalizationData.getDeviceId()).add("has been registered at").add(geoLocalizationData.getTimestamp().getHour() + ":" + geoLocalizationData.getTimestamp().getMinute() + ":" + geoLocalizationData.getTimestamp().getSecond()).toString();
     }
 }

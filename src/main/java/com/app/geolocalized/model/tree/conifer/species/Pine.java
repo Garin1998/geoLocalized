@@ -7,17 +7,30 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.StringJoiner;
 
+/**
+ * Subclass of {@link Conifer Class} provided methods for Pine tree.
+ *
+ * @author Krzysztof Kubiś
+ * @version 1.0
+ * @since JDK 17
+ */
 public class Pine extends Conifer {
 
     public Pine() {
         super();
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public String grow() {
         return "Pine had grown";
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public String growBranches(ArrayList<String> branchID, int amount) {
         this.getTrunk().addBranches(branchID, amount);
@@ -30,6 +43,9 @@ public class Pine extends Conifer {
                 .toString();
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public String growLeavesOnBranch(String branchID, int amount) {
         Branch selectedBranch = this.getTrunk().getBranches().get(branchID);
@@ -49,6 +65,9 @@ public class Pine extends Conifer {
                 .toString();
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public String shedAllLeavesFromBranch(String branchID) {
         this.getTrunk().getBranches().get(branchID).removeAllLeaves();
@@ -60,6 +79,9 @@ public class Pine extends Conifer {
                 .toString();
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public String shedAllLeavesFromAllBranches() {
         HashMap<String, Branch> branches = this.getTrunk().getBranches();

@@ -15,6 +15,13 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Class, which enable creating own global interception of exception in REST service.
+ *
+ * @author Krzysztof Kubiś
+ * @version 1.0
+ * @since JDK 17
+ */
 @ControllerAdvice
 public class GeoControllerExceptionHandler extends ResponseEntityExceptionHandler {
 
